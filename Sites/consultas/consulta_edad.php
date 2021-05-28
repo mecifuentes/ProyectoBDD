@@ -6,12 +6,24 @@
   require("../config/conexion.php");
 
   $comuna= $_POST["comuna"];
- 	$query = "select avg(personal.edad) from personal,tienda,direccion,comuna where personal.tienda=tienda.id and tienda.dirección=direccion.id and direccion.comuna=comuna.id and comuna.nombre like '%$comuna%';";
-	$result = $db -> prepare($query);
-	$result -> execute();
-	$edad = $result -> fetchAll();
+  $query = "select avg(personal.edad) from personal,tienda,direccion,comuna where personal.tienda=tienda.id and tienda.dirección=direccion.id and direccion.comuna=comuna.id and comuna.nombre like '%$comuna%';";
+  $result = $db -> prepare($query);
+  $result -> execute();
+  $edad = $result -> fetchAll();
   ?>
 
-<h3 align="center"><?php$edad[0]?></h3>
+<table>
+    <tr>
+      <th>Edad</th>
+    </tr>
+  
+      <?php
+        // echo $pokemones;
+        foreach ($edad as $edad) {
+          echo "<tr>$edad[0]</tr>";
+      }
+      ?>
+      
+  </table>
 
 <?php include('../templates/footer.html'); ?>
