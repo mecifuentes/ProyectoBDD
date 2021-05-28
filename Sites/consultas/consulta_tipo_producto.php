@@ -7,6 +7,7 @@
 
   #Se obtiene el valor del input del usuario
   $tipo_producto = $_POST["tipo_producto"];
+  
   if ($tipo_producto == "comestible"){
  	$query = "SELECT distinct tienda.nombre from comestible,stock,tienda where stock.id_tienda=tienda.id and stock.id_producto=comestible.id_producto;";
 	$result = $db -> prepare($query);
