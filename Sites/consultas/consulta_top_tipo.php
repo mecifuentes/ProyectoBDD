@@ -12,13 +12,13 @@
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$resultado = $result -> fetchAll();
-  }
+  };
   if ($tipo_producto == "no_comestible"){
     $query = "select tienda.nombre, sum(boleta.cantidad) from no_comestible, boleta, compras, tienda where no_comestible.id_producto=boleta.id_producto and boleta.id_compra=compras.id and compras.id_tienda=tienda.id group by tienda.id order by sum(boleta.cantidad) desc limit 5;";
    $result = $db -> prepare($query);
    $result -> execute();
    $resultado = $result -> fetchAll();
-   }
+   };
   ?>
 
   <table>
