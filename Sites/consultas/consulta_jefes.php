@@ -28,8 +28,8 @@
 	}
   ?>
 	</table>}
-  <?php if (strlen($comuna_b)==1)
-    echo "<p style="text-align:center;">No ingreso comuna, por favor intente otra vez</p>";
+  <?php if (strlen($comuna_b)==0){
+    echo "<p style="text-align:center;">No ingreso comuna, por favor intente otra vez</p>";}
   ?>
 
 <?php include('../templates/footer.html'); ?>
