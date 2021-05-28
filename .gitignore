@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+Entrega2/comunas.py
+Entrega2/despacha.py
+Entrega2/compras.py
+Entrega2/productos.py
+Sites/consultas/consulta_tiendas2.php
