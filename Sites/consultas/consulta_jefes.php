@@ -4,9 +4,11 @@
 <?php
   #Llama a conexión, crea el objeto PDO y obtiene la variable $db
   require("../config/conexion.php");
-
   $comuna = $_POST["comuna"];
   $comuna_b = strtolower($comuna);
+  if (strlen($comuna_b)==0) {
+    <?php include('../templates/footer.html'); ?>
+  }
  	$query = "select distinct personal.id,personal.nombre,personal.rut,personal.edad,personal.sexo from tienda,personal,despacha,comuna where tienda.jefe=personal.id and tienda.id=despacha.id_tienda and despacha.id_comuna=comuna.id and comuna.nombre like '%$comuna_b%';";
 	$result = $db -> prepare($query);
 	$result -> execute();
