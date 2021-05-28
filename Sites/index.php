@@ -21,7 +21,7 @@
   <form align="center" action="consultas/consulta_jefes.php" method="post">
     Ingrese comuna:
     <input type="text" name="comuna">
-    <br/><br/>
+    <br><br>
     <input type="submit" value="Buscar">
   </form>
   
@@ -49,7 +49,7 @@
   <form align="center" action="consultas/consulta_descripcion.php" method="post">
     Ingrese descripción
     <input type="text" name="descripcion">
-    <br/><br/>
+    <br><br>
     <input type="submit" value="Buscar">
   </form>
   <br>
@@ -59,9 +59,9 @@
   <h3 align="center"> Edad promedio de trabajadores de tienda que estan en una comuna</h3>
 
   <form align="center" action="consultas/consulta_edad.php" method="post">
-    Ingrese comuna
+    Ingrese comuna:
     <input type="text" name="edad">
-    <br/><br/>
+    <br><br>
     <input type="submit" value="Buscar">
   </form>
   <br>
