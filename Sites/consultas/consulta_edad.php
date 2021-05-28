@@ -6,7 +6,7 @@
   require("../config/conexion.php");
 
   $comuna= $_POST["comuna"];
- 	$query = "select avg(personal.edad) from personal,tienda,direccion,comuna where personal.tienda=tienda.id and tienda.dirección=direccion.id and direccion.comuna=comuna.id and comuna.nombre='%$comuna%';";
+ 	$query = "select avg(personal.edad) from personal,tienda,direccion,comuna where personal.tienda=tienda.id and tienda.dirección=direccion.id and direccion.comuna=comuna.id and comuna.nombre='$comuna';";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$edad = $result -> fetchAll();
