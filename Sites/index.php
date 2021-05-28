@@ -38,7 +38,7 @@
       <option value="no_comestible">No comestibles</option> 
     </select>
     <br><br>
-    <imput type="submit" value="tipo_producto">
+    <input type="submit" value="tipo_producto">
   </form>
   <br>
   <br>
@@ -77,7 +77,7 @@
       <option value="no_comestible">No comestibles</option> 
     </select>
     <br><br>
-    <imput type="submit" value="tipo_producto">
+    <input type="submit" value="tipo_producto">
 
   <br>
   <br>
