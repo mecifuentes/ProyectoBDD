@@ -6,8 +6,8 @@
   require("../config/conexion.php");
 
   $descripcion = $_POST["descripcion"];
-  $descripcion_b = strtolower($descripcion)
- 	$query = "select distinct usuario.id,usuario.nombre,usuario.rut,usuario.edad,usuario.sexo from usuario, compras, boleta, productos where usuario.id=compras.id_usuario AND compras.id=boleta.id_compra AND boleta.id_producto=productos.id AND productos.descripcion like '$descripcion_b';";
+  $descripcion_b = strtolower($descripcion);
+ 	$query = "select distinct usuario.id,usuario.nombre,usuario.rut,usuario.edad,usuario.sexo from usuario, compras, boleta, productos where usuario.id=compras.id_usuario AND compras.id=boleta.id_compra AND boleta.id_producto=productos.id AND productos.descripcion like '%$descripcion_b%';";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$usuarios = $result -> fetchAll();
