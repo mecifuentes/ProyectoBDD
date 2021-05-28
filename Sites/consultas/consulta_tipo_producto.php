@@ -29,7 +29,7 @@
       <?php
         // echo $pokemones;
         foreach ($resultado as $tienda) {
-          echo "<tr><th>$tienda[0]</th></tr>";
+          echo "<tr><td>$tienda[0]</td></tr>";
       }
       ?>
       
