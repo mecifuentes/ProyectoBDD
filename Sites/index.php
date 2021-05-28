@@ -21,7 +21,7 @@
   <form align="center" action="consultas/consulta_jefes.php" method="post">
     Ingrese comuna:
     <input type="text" name="comuna">
-    <br><br>
+    <br/><br/>
     <input type="submit" value="Buscar">
   </form>
   
@@ -37,7 +37,7 @@
       <option value="comestible">Comestibles</option> 
       <option value="no_comestible">No comestibles</option> 
     </select>
-    <br><br>
+    <br/><br/>
     <input type="submit" value="Buscar">
   </form>
   <br>
@@ -49,7 +49,7 @@
   <form align="center" action="consultas/consulta_descripcion.php" method="post">
     Ingrese descripción
     <input type="text" name="descripcion">
-    <br><br>
+    <br/><br/>
     <input type="submit" value="Buscar">
   </form>
   <br>
@@ -60,8 +60,8 @@
 
   <form align="center" action="consultas/consulta_edad.php" method="post">
     Ingrese comuna:
-    <input type="text" name="edad">
-    <br><br>
+    <input type="text" name="comuna">
+    <br/><br/>
     <input type="submit" value="Buscar">
   </form>
   <br>
