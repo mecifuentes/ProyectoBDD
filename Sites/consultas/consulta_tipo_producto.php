@@ -8,13 +8,13 @@
   #Se obtiene el valor del input del usuario
   $tipo_producto = $_POST["tipo_producto"];
   if ($tipo_producto == "comestible"){
- 	$query = "select tienda.nombre from comestible,productos,stock,tienda where stock.id_tienda=tienda.id and stock.id_producto=productos.id and productos.id=comestible.id_producto order by tienda.id;";
+ 	$query = "select distinct(tienda.nombre) from comestible,productos,stock,tienda where stock.id_tienda=tienda.id and stock.id_producto=productos.id and productos.id=comestible.id_producto order by tienda.id;";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$resultado = $result -> fetchAll();
   }
   if ($tipo_producto == "no_comestible"){
-    $query = "select tienda.nombre from no_comestible,productos,stock,tienda where stock.id_tienda=tienda.id and stock.id_producto=productos.id and productos.id=no_comestible.id_producto order by tienda.id;";
+    $query = "select distinct(tienda.nombre) from no_comestible,productos,stock,tienda where stock.id_tienda=tienda.id and stock.id_producto=productos.id and productos.id=no_comestible.id_producto order by tienda.id;";
    $result = $db -> prepare($query);
    $result -> execute();
    $resultado = $result -> fetchAll();
