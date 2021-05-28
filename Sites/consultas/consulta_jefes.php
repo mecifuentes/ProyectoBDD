@@ -7,7 +7,7 @@
 
   $comuna = $_POST["comuna"];
   $comuna_b = strtolower($comuna);
- 	$query = "SELECT distinct personal.nombre,personal.rut,personal.edad,personal.sexo from tienda,personal,despacha,comuna where tienda.jefe=personal.id and tienda.id=despacha.id_tienda and despacha.id_comuna=comuna.id and comuna.nombre like '%$comuna_b%' order by tienda.id;";
+ 	$query = "SELECT distinct personal.id,personal.nombre,personal.rut,personal.edad,personal.sexo from tienda,personal,despacha,comuna where tienda.jefe=personal.id and tienda.id=despacha.id_tienda and despacha.id_comuna=comuna.id and comuna.nombre like '%$comuna_b%' order by tienda.id;";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$jefes = $result -> fetchAll();
@@ -15,6 +15,7 @@
 
 	<table>
     <tr>
+      <th>ID</th>
       <th>Nombre</th>
       <th>Rut</th>
       <th>Edad</th>
@@ -22,7 +23,7 @@
     </tr>
   <?php
 	foreach ($jefes as $jefe) {
-  		echo "<tr><td>$jefe[0]</td><td>$jefe[1]</td><td>$jefe[2]</td><td>$jefe[3]</td></tr>";
+  		echo "<tr><td>$jefe[0]</td><td>$jefe[1]</td><td>$jefe[2]</td><td>$jefe[3]</td><td>$jefe[4]</td></tr>";
 	}
   ?>
 	</table>
