@@ -20,7 +20,7 @@
       <?php
         // echo $pokemones;
         foreach ($edad as $edad) {
-          echo "<tr>$edad[0]</tr>";
+          echo "<tr><th>$edad[0]</th></tr>";
       }
       ?>
       
