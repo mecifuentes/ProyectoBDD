@@ -19,7 +19,7 @@
   <h3 align="center"> Ingrese una comuna para ver todos los jefes de las tiendas ubicadas en dicha comuna</h3>
 
   <form align="center" action="consultas/consulta_jefes.php" method="post">
-    Id:
+    Ingrese comuna:
     <input type="text" name="comuna">
     <br/><br/>
     <input type="submit" value="Buscar">
