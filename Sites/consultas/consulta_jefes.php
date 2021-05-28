@@ -7,7 +7,8 @@
   $comuna = $_POST["comuna"];
   $comuna_b = strtolower($comuna);
   if (strlen($comuna_b)==0) {
-    <?php include('../templates/footer.html'); ?>
+    echo "<p style="text-align:center;">Aqui puedes buscar información sobre las tiendas de Mi Tienda Web</p>";
+    include('../templates/footer.html');
   }
  	$query = "select distinct personal.id,personal.nombre,personal.rut,personal.edad,personal.sexo from tienda,personal,despacha,comuna where tienda.jefe=personal.id and tienda.id=despacha.id_tienda and despacha.id_comuna=comuna.id and comuna.nombre like '%$comuna_b%';";
 	$result = $db -> prepare($query);
