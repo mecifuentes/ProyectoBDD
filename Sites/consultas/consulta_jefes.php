@@ -9,7 +9,7 @@
   if (strlen($comuna_b)==0) {
     echo '<p style="text-align:center;">No ingresaste una comuna, te mostramos todas los jefes de todas las tiendas en todas las comunas</p>';
   }
- 	$query = "select distinct personal.id,personal.nombre,personal.rut,personal.edad,personal.sexo,tienda.nombre from tienda,personal,despacha,comuna where tienda.jefe=personal.id and tienda.id=despacha.id_tienda and despacha.id_comuna=comuna.id and comuna.nombre like '%$comuna_b%';";
+ 	$query = "select distinct personal.id,personal.nombre,personal.rut,personal.edad,personal.sexo,tienda.nombre from tienda,personal,direccion,comuna where tienda.jefe=personal.id and tienda.id=direccion.id and direccion.comuna=comuna.id and comuna.nombre like '%$comuna_b%';";
 	$result = $db -> prepare($query);
 	$result -> execute();
 	$jefes = $result -> fetchAll();
