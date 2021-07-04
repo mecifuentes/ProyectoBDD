@@ -17,19 +17,18 @@
     $contraseña_2 = $_POST["contraseña_2"];
     #falta el id que hay que agregarlo (manualmente, para asi usar el mismo id para asociarlo a la direccion)
     #como lo suponiste leyendo lo anterior, falta insertar la direccion
-    $query = "select id from usuarios order by id desc limit 1;";
+    $query = "select id from usuario order by id desc limit 1;";
     $result = $db -> prepare($query);
     $result -> execute();
     $resultado = $result -> fetch(1);
+    echo "<p>$resultado</p>";
     $id_usuario = $resultado[0];
-    echo "<p>'$resultado'</p>";
-    echo "<p>'$id_usuario'</p>";
     $query2 = "select id from direccion order by id desc limit 1;";
     $result2 = $db -> prepare($query2);
     $result2 -> execute();
     $resultado2 = $result2 -> fetch(1);
     $id_direccion = $resultado[0];
-    $query3 = "INSERT INTO usuarios (id, nombre, rut, edad, sexo) VALUES ('$id_usuario', '$nombre','$rut','$edad', '$sexo');";
+    $query3 = "INSERT INTO usuario (id, nombre, rut, edad, sexo) VALUES ('$id_usuario', '$nombre','$rut','$edad', '$sexo');";
     $query4 = "INSERT INTO direccion (id, nombre) VALUES ('$id_direccion','$direccion');";
     $query5 = "INSERT INTO residencia (id_usuario, id_direccion) VALUES ('$id_usuario','$id_direccion');";
     $result3 = $db -> prepare($query3);
