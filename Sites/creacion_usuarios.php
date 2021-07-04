@@ -22,6 +22,8 @@
     $result -> execute();
     $resultado = $result -> fetch(1);
     $id_usuario = $resultado[0];
+    echo "<p>$resultado</p>"
+    echo "<p>$id_usuario</p>"
     $query2 = "select id from direccion order by id desc limit 1;";
     $result2 = $db -> prepare($query2);
     $result2 -> execute();
