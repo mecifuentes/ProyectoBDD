@@ -21,12 +21,12 @@
     $result = $db -> prepare($query);
     $result -> execute();
     $resultado = $result -> fetch(1);
-    $id_usuario = $resultado[0];
+    $id_usuario = (int)$resultado[0] + 1;
     $query2 = "select id from direccion order by id desc limit 1;";
     $result2 = $db -> prepare($query2);
     $result2 -> execute();
     $resultado2 = $result2 -> fetch(1);
-    $id_direccion = $resultado2[0];
+    $id_direccion = (int)$resultado2[0] + 1;
     $query3 = "INSERT INTO usuario (id, nombre, rut, edad, sexo) VALUES ('$id_usuario', '$nombre','$rut','$edad', '$sexo');";
     $query4 = "INSERT INTO direccion (id, nombre) VALUES ('$id_direccion','$direccion');";
     $query5 = "INSERT INTO residencia (id_usuario, id_direccion) VALUES ('$id_usuario','$id_direccion');";
