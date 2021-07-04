@@ -21,12 +21,12 @@
     $result = $db -> prepare($query);
     $result -> execute();
     $resultado = $result -> fetch(1);
-    $id_usuario = $resultado[0][0];
+    $id_usuario = $resultado[0];
     $query2 = "select id from direccion order by id desc limit 1;";
     $result2 = $db -> prepare($query2);
     $result2 -> execute();
     $resultado2 = $result2 -> fetch(1);
-    $id_direccion = $resultado[0][0];
+    $id_direccion = $resultado[0];
     $query3 = "INSERT INTO usuarios (id, nombre, rut, edad, sexo) VALUES ('$id_usuario', '$nombre','$rut','$edad', '$sexo');";
     $query4 = "INSERT INTO direccion (id, nombre) VALUES ('$id_direccion','$direccion');";
     $query5 = "INSERT INTO residencia (id_usuario, id_direccion) VALUES ('$id_usuario','$id_direccion');";
@@ -38,13 +38,13 @@
         if ($result5 -> execute()){
           echo "<p>Registro agregado.</p>";
         } else {
-        echo "<p>No se agregó...</p>";
+        echo "<p>Fallo1</p>";
         }
       } else {
-        echo "<p>No se agregó...</p>";
+        echo "<p>Fallo2</p>";
       }
     } else {
-      echo "<p>No se agregó...</p>";
+      echo "<p>Fallo3</p>";
     }
   }
   ?>
