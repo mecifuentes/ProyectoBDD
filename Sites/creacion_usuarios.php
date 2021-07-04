@@ -21,7 +21,7 @@
     $result = $db -> prepare($query);
     $result -> execute();
     $resultado = $result -> fetch(1);
-    $wena = $resultado[0]
+    $wena = $resultado[0];
     echo "<p>$wena</p>";
     $id_usuario = $resultado[0];
     $query2 = "select id from direccion order by id desc limit 1;";
