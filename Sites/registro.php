@@ -25,10 +25,25 @@
     Dirección
     <input type="text" name="direccion">
     <br/><br/>
+    Comuna
+    <select name="comuna">
+    <option value='' selected disabled>...</option>
+    <?php
+    require("config/conexion.php");
+    $query = "select nombre from comuna";
+    $result = $db -> prepare($query);
+    $result -> execute();
+    $comunas = $result -> fetchAll();
+    foreach ($comunas as $comuna) {
+      echo "<option value='$comuna[0]'>$comuna[0]</option>";
+    }
+    ?>
+    </select>
+    <br/><br/>
     Contraseña
     <input type="password" name="contraseña">
     <br/><br/>
-    Repetir contraseña
+    Confirmar contraseña
     <input type="password" name="contraseña_2">
     <br/><br/>
     <input type="submit" value="Registrarme">
