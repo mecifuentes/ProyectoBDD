@@ -13,13 +13,13 @@
 
 <h3 align="center"> Inicio de Sesión </h3>
 
-<form align= "center" action="registro.php" method="post">
+<form align= "center" action="login.php" method="post">
 
 Rut:
-<input type="text" name= "rut_usuario">
+<input type="text" name= "rut">
 <br/>
 Contraseña:
-<input type="text" name= "contra_usuario">
+<input type="text" name= "contraseña">
 <br/><br/>
 <input type="Submit" value="Ingresar">
 <button type="A" onclick="redirect('registro.php')"> Registrarse</button>
