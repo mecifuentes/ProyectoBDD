@@ -16,7 +16,7 @@
     <br/><br/>
     Sexo
     <select name="sexo">
-      <option selected disabled>...</option> 
+      <option value='' selected disabled>...</option> 
       <option value="hombre">Hombre</option> 
       <option value="mujer">Mujer</option>
       <option value="no_binarie">No binarie</option>  
