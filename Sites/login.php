@@ -14,6 +14,7 @@
     $resultado = $result -> fetch(1);
     if ($rut==$resultado[0]){
         if ($contraseña==$resultado[1]){
+          echo "<p> Ingreso completado </p>";
           echo "<meta http-equiv='refresh' content='URL=show_usuario.php' />";
         } else {
           echo "<p>Contraseña incorrecta</p>";

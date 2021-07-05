@@ -54,6 +54,7 @@
             $result5 = $db -> prepare($query5);
             if ($result5 -> execute()){
               echo "<p>Registro agregado.</p>";
+              echo "<meta http-equiv='refresh' content='3; URL=show_usuario.php' />";
             } else {
             echo "<p>No se pudo crear la cuenta</p>";
             }
