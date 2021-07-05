@@ -4,9 +4,9 @@
 <?php
   #Llama a conexión, crea el objeto PDO y obtiene la variable $db
   require("config/conexion.php");
-  if (isset($_POST["nombre"], $_POST["rut"], $_POST["edad"], $_POST["sexo"], $_POST["direccion"], 
+  if (isset($_POST["nombre"], $_POST["rut"], $_POST["edad"], $_POST["sexo"], $_POST["direccion"], $_POST["comuna"], 
   $_POST["contraseña"], $_POST["contraseña_2"]) and $_POST["nombre"] !="" 
-  and $_POST["rut"]!="" and $_POST["edad"]!="" and $_POST["sexo"]!="" and $_POST["direccion"]!="" 
+  and $_POST["rut"]!="" and $_POST["edad"]!="" and $_POST["sexo"]!="" and $_POST["direccion"]!="" and $_POST["comuna"]!="" 
   and $_POST["contraseña"]!="" and $_POST["contraseña_2"]!=""){
     if ($_POST["contraseña"]==$_POST["contraseña_2"]){
       $nombre = $_POST["nombre"];
@@ -14,10 +14,15 @@
       $edad = $_POST["edad"];
       $sexo = $_POST["sexo"];
       $direccion = $_POST["direccion"];
+      $comuna = $_POST["comuna"];
       $contraseña = $_POST["contraseña"];
       $contraseña_2 = $_POST["contraseña_2"];
-      #falta el id que hay que agregarlo (manualmente, para asi usar el mismo id para asociarlo a la direccion)
-      #como lo suponiste leyendo lo anterior, falta insertar la direccion
+      #buscar el id de la comuna
+      $query = "select id from comuna where nombre='$comuna';";
+      $result = $db -> prepare($query);
+      $result -> execute();
+      $resultado = $result -> fetch(1);
+      $id_comuna = (int)$resultado[0];
       $query = "select id from usuario order by id desc limit 1;";
       $result = $db -> prepare($query);
       $result -> execute();
@@ -28,8 +33,8 @@
       $result2 -> execute();
       $resultado2 = $result2 -> fetch(1);
       $id_direccion = (int)$resultado2[0] + 1;
-      $query3 = "INSERT INTO usuario (id, nombre, rut, edad, sexo, contraseña) VALUES ('$id_usuario', '$nombre','$rut','$edad', '$sexo', '$contraseña');";
-      $query4 = "INSERT INTO direccion (id, nombre, comuna) VALUES ('$id_direccion','$direccion');";
+      $query3 = "INSERT INTO usuario (id, nombre, rut, edad, sexo) VALUES ('$id_usuario', '$nombre','$rut','$edad', '$sexo');";
+      $query4 = "INSERT INTO direccion (id, nombre, comuna) VALUES ('$id_direccion','$direccion', '$id_comuna');";
       $query5 = "INSERT INTO residencia (id_usuario, id_direccion) VALUES ('$id_usuario','$id_direccion');";
       $result3 = $db -> prepare($query3);
       if ($result3 -> execute()){
