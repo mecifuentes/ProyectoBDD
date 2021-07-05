@@ -5,10 +5,12 @@ mover_administrativos_dblink()
 RETURNS void AS $$
 
 
-DECLARE @counter int;
-DECLARE tupla_adm RECORD ;
+DECLARE @counter int,
+        @counter2 int,
+        tupla_adm RECORD ;
 
 SET @counter = 1
+SET @counter2 = 1
 
 BEGIN
     FOR tupla_adm IN (SELECT * FROM
@@ -21,13 +23,14 @@ BEGIN
     LOOP
         IF NOT EXISTS (select usuario.rut from usuario where usuario.rut = tupla_adm.rut)
         BEGIN
-            INSERT INTO Usuario VALUES(364 + tupla_adm.id, tupla_adm.nombre, tupla_adm.rut, tupla_adm.edad, tupla_adm.sexo)
+            INSERT INTO Usuario VALUES(364 + @counter2, tupla_adm.nombre, tupla_adm.rut, tupla_adm.edad, tupla_adm.sexo);
             IF NOT EXISTS (select direccion.nombre from direccion where direccion.nombre = tupla_adm.direccion)
             BEGIN
-                INSERT INTO Direccion VALUES(1097 + @counter, direccion, comuna)
+                INSERT INTO Direccion VALUES(1097 + @counter, direccion, comuna);
+                SET @counter = @counter + 1
             END
         END 
-        SET @counter = @counter + 1
+
 
     END LOOP;
 
