@@ -67,7 +67,7 @@
         echo "<p>Las contraseñas no coinciden</p>";
       }
     } else {
-      echo "<p>Este rut ya esta registrado</p>"
+      echo "<p>Este rut ya esta registrado</p>";
     }
   } else {
     echo "<p>Un campo no fue llenado, por favor vuelva a intentarlo</p>";
